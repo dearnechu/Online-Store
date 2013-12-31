@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->	
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>	
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<script type="text/javascript">
+
+			// Wait for PhoneGap to load
+		    document.addEventListener("deviceready", onDeviceReady, false);
+
+		    // PhoneGap is ready
+		    function onDeviceReady() {
+		        // Empty
+		    }
+
+		    // alert dialog dismissed
+		    function alertDismissed() {
+		        // do something
+		    }
+		    
+		    function redirectOnline() {
+		    	if(navigator.onLine){
+					location.href = "http://staging.experionglobal.com/projects/onlinestore";
+				}
+				else{
+					// Show a custom alert		    
+			        navigator.notification.alert(
+			            'Please check your internet connection and try again.',  // message
+			            alertDismissed,         // callback
+			            'No Internet Connection',            // title
+			            'Done'                  // buttonName
+			        );
+				}
+		    }
+			function resizeHeader() {
+				$('#header').css("height", $(window).height());
+			}
+			jQuery(function() {		
+				resizeHeader();
+			});
+			jQuery(window).resize(function() {
+				resizeHeader();
+			})
+		</script>
+	</head>
+	<body class="homepage">
+
+		<!-- Header -->
+			<div id="header" style="height:100%">
+						
+				<!-- Inner -->
+					<div class="inner">
+						<header>
+							<h1><a href="#" id="logo">Online Store</a></h1>
+							<hr />
+							<span class="byline">One App for all your shopping needs</span>
+						</header>
+						<footer>							    
+							<a href="#" onclick="redirectOnline(); return false;" class="button circled scrolly">Start</a>
+						</footer>
+					</div>				
+				<!-- Nav -->				
+			</div>		
+	</body>
+</html>
